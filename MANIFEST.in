@@ -1,0 +1,7 @@
+include LICENSE
+include README.md
+
+graft fasterraster/bil/
+graft fasterraster/flo/
+graft fasterraster/npy/
+graft fasterraster/operations/
