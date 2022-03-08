@@ -1,16 +1,20 @@
 # Faster-Raster
 
+[![pypi](https://img.shields.io/pypi/v/fasterraster.svg)](https://pypi.python.org/pypi/fasterraster)
+[![image](https://img.shields.io/badge/dynamic/json?query=info.requires_python&label=python&url=https%3A%2F%2Fpypi.org%2Fpypi%2Ffasterraster%2Fjson )](https://pypi.python.org/pypi/fasterraster)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-yellow.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 ***fasterraster*** is a fast multi-threaded python library for performing raster operations using [openMP](https://www.openmp.org/) and [numpy](https://numpy.org/) objects complete with simple IO.
 
  - Github repository: https://github.com/asenogles/fasterraster
  - PyPI: https://pypi.org/project/fasterraster
 
 ## Motivation
----
+
 ***fasterraster*** was developed to quickly perform raster operations, enabling self-supervised learning for raster based analyses. ***fasterraster*** provides a cython wrapper for optimized [openMP](https://www.openmp.org/) *c* code. Data objects are handled by [numpy](https://numpy.org/) allowing for straightforward memory management. Currently only computation of visual/morphological features have been implemented however this is open to expansion in the future. All code is still in development and thus it is recommended to test fully before use.
 
 ## Installation
----
+
 ***fasterraster*** has currently been tested on Linux and Microsoft windows operating systems. You will need python>=3.6 installed. It is recommended to install ***fasterraster*** within a virtual environment.
 ### Install using pip
 
@@ -28,7 +32,7 @@ python3 setup.py build_ext --inplace
 **Note**: You will need to have the required build dependencies installed.
 
 ## Example
----
+
 ```python
 import timeit
 import numpy as np
