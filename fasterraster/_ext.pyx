@@ -215,10 +215,10 @@ def static_random_crop_mp(const float[:,::1] raster, crop_size, const int numt=1
     STATIC_RANDOM_CROP_MP(&crop_view[0,0], &raster[0,0], crop_rows, crop_cols, full_rows, full_cols, numt)
     return crop
 
-def mutiply_scaler_mp(float[::1] arr, const float scaler, const int numt=1):
+def multiply_scaler_mp(float[::1] arr, const float scaler, const int numt=1):
     cdef int size = arr.size
     MULTIPY_SCALER_MP(&arr[0], scaler, size, numt)
 
-def mutiply_scaler_SSE(float[::1] arr, const float scaler, const int numt=1):
+def multiply_scaler_SSE(float[::1] arr, const float scaler, const int numt=1):
     cdef int size = arr.size
     MULTIPY_SCALER_SSE(&arr[0], scaler, size, numt)
