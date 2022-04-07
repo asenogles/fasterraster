@@ -255,7 +255,7 @@ class Raster(Bil, Bsq, Tif):
         new_grid = np.stack(np.meshgrid(xi, yi), axis=-1)
 
         # perform interpolating and check new shape is correct
-        self.raster = interp_func(new_grid)
+        self.raster = interp_func(new_grid).astype(self.NPTYPE)
         assert (self.raster.shape[0] == new_rows) and (self.raster.shape[1] == new_cols)
 
         # update raster meta-data
