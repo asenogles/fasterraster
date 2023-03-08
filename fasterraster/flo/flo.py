@@ -55,10 +55,11 @@ class Flo:
     def __init__(self, fname, data=None):
         #TODO: Implement geo flo
         self.NBANDS = 2
+        self.NPTYPE = np.float32
         if fname is not None:
             self.raster = self.read_flo(fname)
         elif data is not None:
-            self.raster = data
+            self.raster = data.astype(self.NPTYPE)
 
     def __copy__(self):
         cls = self.__class__
