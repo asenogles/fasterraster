@@ -45,7 +45,7 @@ with open('README.md', mode = 'rb') as readme_file:
 
 setup(
     name = 'fasterraster',
-    version='0.0.3',
+    version='0.0.4',
     description='Fast multi-threaded raster operations with simple IO',
     long_description=readme,
     long_description_content_type='text/markdown',
