@@ -209,3 +209,25 @@ class Flo:
         kwargs = {**dict(angles="xy", scale_units="xy"), **kwargs}
 
         ax.quiver(x, y, u, v, **kwargs)
+
+
+def compute_epe(flo1: np.ndarray, flo2: np.ndarray) -> np.ndarray:
+    """computes the end-point error grid between two flo grids
+
+    Args:
+        flo1 (np.ndarray): flo grid 1, with shape NROWSxNCOLSxNDIMS
+        flo2 (np.ndarray): flo grid 2, with shape NROWSxNCOLSxNDIMS
+
+    Returns:
+        np.ndarray: end-point error grid (epe), with shape NROWSxNCOLS
+    """
+    if isinstance(flo1, Flo):
+        flo1 = flo1.raster
+    if isinstance(flo2, Flo):
+        flo2 = flo2.raster
+    assert(flo1.shape == flo2.shape)
+    assert(flo1.ndim == 3)
+    diff = flo1 - flo2
+    diff_sq = np.power(diff, 2)
+    sum_diff_sq = np.sum(diff_sq, axis=-1)
+    return np.sqrt(sum_diff_sq)
