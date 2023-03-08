@@ -87,6 +87,18 @@ class Flo:
         self.NCOLS = self.raster.shape[1]
         return 0
 
+    def magnitude(self):
+        sq = np.power(self.raster, 2, dtype=self.NPTYPE)
+        sum_sq = np.sum(sq, axis=-1, dtype=self.NPTYPE)
+        return np.sqrt(sum_sq, dtype=self.NPTYPE)
+
+    def unit_vector(self):
+        mag = self.magnitude()
+        mag[mag == 0.] = np.nan
+        unit = self.raster / mag[:,:,None]
+        unit[np.isnan(unit)] = 0.
+        return unit
+
     def get_u(self, view=True):
         if view == True:
             return self.raster[:,:,::2].reshape(self.NROWS, self.NCOLS)
