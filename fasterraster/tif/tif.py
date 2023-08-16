@@ -37,9 +37,9 @@ class Tif:
     def read_tif(self, fname):
         array = tifffile.imread(fname)
         try:
-            self.NROWS, self.NCOLS, self.NBANDS = array
+            self.NROWS, self.NCOLS, self.NBANDS = array.shape
         except ValueError:
-            self.NROWS, self.NCOLS, *_ = array
+            self.NROWS, self.NCOLS, *_ = array.shape
             self.NBANDS = 1
         return array
 
